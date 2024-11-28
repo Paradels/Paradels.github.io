@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilos/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="title">Datos de Usuario </p>
+
+  <form action="https://www.w3schools.com/action_page.php">
+
+    <label>Nombre de Usuario:</label>
+    <input type="text" placeholder="UserName">
+
+    <label>Contraseña:</label>
+    <input type="password" id="password" placeholder="Introduce Contraseña">
+    <input type="checkbox" onclick="mostrarContra()">Mostrar Contraseña
+
+    <p>Datos personales</p>
+    <label>Nombre</label>
+    <input type="text" placeholder="Nombre">
+
+    <label>Apellidos</label>
+    <input type="text" placeholder="Apellidos">  
+
+   <label>Teléfono:</label>
+   <input type="tel" placeholder="Ejem:(+34)922646464">
+
+   <label>Codigo Postal</label>
+   <input type="number" placeholder="38XXX"> 
+
+   <label for="tipoDocumento">Tipo de Documento</label>
+   <select id="tipoDocumento" name="tipoDocumento">
+     <option value="DNI">DNI</option>
+     <option value="NIE">NIE</option>
+   </select>
+
+   <label for="documento">Número de Documento</label>
+   <input type="text" id="documento" name="documento" placeholder="99999999X">
+
+   <label>Año de nacimiento</label>
+   <input type="number" inputmode="numeric" placeholder="año">
+
+   <p class="title">Elige tus aficiones</p>
+
+   <div class="aficiones">
+   <label for="musica">Música</label>
+   <input type="checkbox" id="musica" name="aficiones" value="musica">
+
+
+   <label for="deporte">Deporte</label>
+   <input type="checkbox" id="deporte" name="aficiones" value="deporte">
+
+   <label for="videojuego">Videojuegos</label>
+   <input type="checkbox" id="videojuego" name="aficiones" value="videojuego">
+
+   <label for="manualidades">Manualidades</label>
+   <input type="checkbox" id="manualidades" name="aficiones" value="manualidades">
+
+   <label for="artes">Artes</label>
+   <input type="checkbox" id="artes" name="aficiones" value="artes">
+
+   <label for="lectura">Lectura</label>
+   <input type="checkbox" id="lectura" name="aficiones" value="lectura">
+  </div>
+
+   <p class="title">Datos Publicación</p>
+
+   <label for="titulo">Título</label>
+   <input type="text" id="titulo" name="titulo" placeholder="Título" maxlength="15">
+   
+   <label for="descripcion">Descripción</label>
+   <textarea id="descripcion" name="descripcion" placeholder="Descripción" maxlength="120" rows="4" cols="40"></textarea>
+
+    <button type="submit">Enviar</button>
+</form>
+
+<script src="estilos/pro.js"></script>
+</body>
+</html>
