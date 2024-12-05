@@ -1,82 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="estilos/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="estilos/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <p class="title">Datos de Usuario </p>
+  <div class="form-pri">
+  <p class="title">Datos de Usuario </p>
 
-  <form action="https://www.w3schools.com/action_page.php">
+  <form action="https://www.w3schools.com/action_page.php" novalidate>
+    <!-- novalidate para despues validarlo en el js .validateMessage -->
+    <div class="datos-usuario">
+      <label>Nombre de Usuario:</label>
+      <input name="NombreUsuario" type="text" placeholder="UserName" id="username" required>
+      <span class="error-message" id="error-username"></span>
 
-    <label>Nombre de Usuario:</label>
-    <input type="text" placeholder="UserName">
-
-    <label>Contraseña:</label>
-    <input type="password" id="password" placeholder="Introduce Contraseña">
-    <input type="checkbox" onclick="mostrarContra()">Mostrar Contraseña
+      <label>Contraseña:</label>
+      <input Name="Contrasena" type="password" id="password" placeholder="Introduce Contraseña" required>
+      <span class="error-message" id="error-contrasena"></span>
+      <input type="checkbox" onclick="mostrarContra()">Mostrar Contraseña
+    </div>
 
     <p>Datos personales</p>
-    <label>Nombre</label>
-    <input type="text" placeholder="Nombre">
+    <div class="datos-personales">
+      <label>Nombre</label>
+      <input name="Nombre" type="text" placeholder="Nombre" id="nombre" required>
+      <span class="error-message" id="error-nombre"></span>
 
-    <label>Apellidos</label>
-    <input type="text" placeholder="Apellidos">  
+      <label>Apellidos</label>
+      <input name="Apellidos" type="text" placeholder="Apellidos" id="apellidos" required>
+      <span class="error-message" id="error-apellidos"></span>
 
-   <label>Teléfono:</label>
-   <input type="tel" placeholder="Ejem:(+34)922646464">
+      <label>Teléfono:</label>
+      <input name="Telefono" type="tel" id="telefono" placeholder="Ejem: (+34)922646464" pattern="^\(\+34\)[0-9]{9}$"
+        required>
+      <span class="error-message" id="error-telefono"></span>
 
-   <label>Codigo Postal</label>
-   <input type="number" placeholder="38XXX"> 
+      <label>Codigo Postal</label>
+      <input name="CodigoPostal" id="codigoPostal" type="text" placeholder="38XXX" maxlength="5" pattern="38[0-9]{3}"
+        title="El código postal debe comenzar con '38' seguido de tres dígitos" required>
+      <span class="error-message" id="error-codigoPostal"></span>
 
-   <label for="tipoDocumento">Tipo de Documento</label>
-   <select id="tipoDocumento" name="tipoDocumento">
-     <option value="DNI">DNI</option>
-     <option value="NIE">NIE</option>
-   </select>
+      <label for="tipoDocumento">Tipo de Documento</label>
+      <select id="tipoDocumento" name="DniNie" required>
+        <option value="DNI">DNI</option>
+        <option value="NIE">NIE</option>
+      </select>
+      <label for="documento">Número de Documento</label>
+      <input type="text" id="documento" name="TipoDocumento" placeholder="99999999X" pattern="[0-9]{8}[A-Za-z]"
+        required>
+      <span class="error-message" id="error-documento"></span>
 
-   <label for="documento">Número de Documento</label>
-   <input type="text" id="documento" name="documento" placeholder="99999999X">
+      <label for="documento">Crear cuenta como:</label>
+      <div class="PaEm">
+        <label for="particular">Particular</label>
+        <input type="radio" id="particular" name="tipoCuenta" value="Particular" checked>
+        <label for="empresa">Empresa</label>
+        <input type="radio" id="empresa" name="tipoCuenta" value="Empresa">
+      </div>
 
-   <label>Año de nacimiento</label>
-   <input type="number" inputmode="numeric" placeholder="año">
+      <label for="anioNacimiento">Año de Nacimiento</label>
+      <select id="anioNacimiento" name="anioNacimiento" required></select>
 
-   <p class="title">Elige tus aficiones</p>
+    </div>
+    <p class="title">Elige tus aficiones</p>
+    <div class="aficiones" id="aficiones-group">
+      <label for="musica">Música</label>
+      <input type="checkbox" id="musica" name="aficiones" value="MU">
+      <label for="deporte">Deporte</label>
+      <input type="checkbox" id="deporte" name="aficiones" value="DE">
+      <label for="videojuego">Videojuegos</label>
+      <input type="checkbox" id="videojuego" name="aficiones" value="VI">
+      <label for="manualidades">Manualidades</label>
+      <input type="checkbox" id="manualidades" name="aficiones" value="MA">
+      <label for="artes">Artes</label>
+      <input type="checkbox" id="artes" name="aficiones" value="AR">
+      <label for="lectura">Lectura</label>
+      <input type="checkbox" id="lectura" name="aficiones" value="LE">
+    </div>
+    <span class="error-message" id="error-aficiones"></span>
 
-   <div class="aficiones">
-   <label for="musica">Música</label>
-   <input type="checkbox" id="musica" name="aficiones" value="musica">
 
+    <p class="title">Datos Publicación</p>
 
-   <label for="deporte">Deporte</label>
-   <input type="checkbox" id="deporte" name="aficiones" value="deporte">
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" name="PublicacionTitulo" placeholder="Título" minlength="4" maxlength="15" required>
+    <div id="titulo-counter" class="counter">0/15</div>
+    <span class="error-message" id="error-titulo"></span>
 
-   <label for="videojuego">Videojuegos</label>
-   <input type="checkbox" id="videojuego" name="aficiones" value="videojuego">
-
-   <label for="manualidades">Manualidades</label>
-   <input type="checkbox" id="manualidades" name="aficiones" value="manualidades">
-
-   <label for="artes">Artes</label>
-   <input type="checkbox" id="artes" name="aficiones" value="artes">
-
-   <label for="lectura">Lectura</label>
-   <input type="checkbox" id="lectura" name="aficiones" value="lectura">
-  </div>
-
-   <p class="title">Datos Publicación</p>
-
-   <label for="titulo">Título</label>
-   <input type="text" id="titulo" name="titulo" placeholder="Título" maxlength="15">
-   
-   <label for="descripcion">Descripción</label>
-   <textarea id="descripcion" name="descripcion" placeholder="Descripción" maxlength="120" rows="4" cols="40"></textarea>
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion" name="PublicacionDescripcion" placeholder="Descripción" minlength="4" maxlength="120"
+      rows="4" cols="40" required></textarea>
+    <div id="descripcion-counter" class="counter">0/120</div>
+    <span class="error-message" id="error-descripcion"></span>
 
     <button type="submit">Enviar</button>
-</form>
+  </form>
+</div>
+  <div class="validacion" id="mensajes-validacion"></div>
 
-<script src="estilos/pro.js"></script>
+
+  <script type="module" src="estilos/main.js"></script>
 </body>
+
 </html>
