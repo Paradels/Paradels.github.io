@@ -1,7 +1,9 @@
 // Función para mostrar u ocultar la contraseña
 export function mostrarContra() {
     const passwordField = document.getElementById('password');
-    if (passwordField.type === 'password') {
+    const checkbox = document.getElementById('mostrar-contrasena');
+    
+    if (checkbox.checked) {
         passwordField.type = 'text';
     } else {
         passwordField.type = 'password';
