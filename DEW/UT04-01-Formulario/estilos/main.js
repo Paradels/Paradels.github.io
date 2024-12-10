@@ -31,4 +31,7 @@ form.addEventListener('submit', function(event) {
 });
 
 // Función para mostrar u ocultar la contraseña (asociada al checkbox o similar)
-document.getElementById('mostrarContrasena').addEventListener('click', mostrarContra);
+document.addEventListener('DOMContentLoaded', () => {
+    const checkbox = document.getElementById('mostrar-contrasena');
+    checkbox.addEventListener('click', mostrarContra);
+});
